@@ -7,5 +7,3 @@ def overworld_to_nether(x,y,z):
     x /= 8
     z /= 8
     return (round(x),y,round(z))
-
-print(overworld_to_nether(-174, 61, -268))
