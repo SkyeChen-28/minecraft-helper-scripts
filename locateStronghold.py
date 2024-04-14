@@ -18,6 +18,10 @@ def locateStronghold(x1: float, z1: float, yaw1: float, x2: float, z2: float, ya
     dx1, dx2 = cos(theta1), cos(theta2)
     dz1, dz2 = sin(theta1), sin(theta2)
 
+    # Notify user if the two positions are collinear (Calculations won't work if so)
+    if ((theta1 - theta2) < dbz_threshold):
+        raise ValueError("Please pick two positions that are NOT collinear with the Stronghold.")
+
     # Calculate the x coord
     x = ((dx1 * dx2 * (z2-z1)) - (dz2 * dx1 * x2) + (dz1 * dx2 * x1)) / (sin(theta1 - theta2))
 
